@@ -6,10 +6,6 @@ import (
 	"github.com/spf13/viper"
 )
 
-var (
-	originMap *map[string]bool
-)
-
 func GetCORSAllowedMethods() []string {
 	return viper.GetStringSlice("cors.allow,methods")
 }
