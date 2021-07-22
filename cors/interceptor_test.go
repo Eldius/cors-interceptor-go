@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	originLocalhost = "http://localhost"
+	originLocalhost  = "http://localhost"
 	originNotAllowed = "http://localhost:8000"
 )
 
@@ -22,7 +22,7 @@ func handler() http.HandlerFunc {
 
 func init() {
 	//config.PrepareConfig()
-	viper.SetDefault("cors.allow,methods", []string{"POST", "GET"})
+	viper.SetDefault("cors.allow.methods", []string{"POST", "GET"})
 	viper.SetDefault("cors.allow.headers", []string{"Content-Type", "Accept", "Authorization", "Origin", "Host"})
 	viper.SetDefault("cors.allow.origins", []string{originLocalhost})
 	if err := viper.ReadInConfig(); err == nil {
@@ -67,7 +67,6 @@ func TestRequest(t *testing.T) {
 		t.Errorf("Response should have 'Access-Control-Allow-Headers' header with value %s, but it's value was '%s'", originLocalhost, res.Header.Get("Access-Control-Allow-Methods"))
 	}
 }
-
 
 func TestRequestNotInAllowedHosts(t *testing.T) {
 	mux := http.NewServeMux()

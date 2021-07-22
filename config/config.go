@@ -7,7 +7,7 @@ import (
 )
 
 func GetCORSAllowedMethods() []string {
-	return viper.GetStringSlice("cors.allow,methods")
+	return viper.GetStringSlice("cors.allow.methods")
 }
 
 func GetCORSAllowedHeaders() []string {

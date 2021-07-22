@@ -11,7 +11,7 @@ import (
 )
 
 func SetDefaults() {
-	viper.SetDefault("cors.allow,methods", []string{"POST", "GET", "OPTIONS", "PUT", "DELETE"})
+	viper.SetDefault("cors.allow.methods", []string{"POST", "GET", "OPTIONS", "PUT", "DELETE"})
 	viper.SetDefault("cors.allow.headers", []string{"Content-Type", "Accept", "Authorization", "Origin", "Host"})
 	viper.SetDefault("cors.allow.origins", "http://localhost")
 }
@@ -22,7 +22,7 @@ func BindEnvVars() {
 	bindEnv("cors.allow.origins", "CORS_ALLOW_ORIGIN")
 }
 
-func PrepareConfig()  {
+func PrepareConfig() {
 	SetDefaults()
 	BindEnvVars()
 }
